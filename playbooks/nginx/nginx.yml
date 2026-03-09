@@ -1,0 +1,21 @@
+#--- Installing Nginx ----
+
+- name: set up webserver
+  hosts:  nginx 
+  tasks: 
+    - name: Adding EPEL Repo
+      become: true
+      yum:
+        name: epel-release
+        state: present
+    - name: ensure nginx is at the latest version
+      become: true
+      yum:
+        name: nginx
+        state: latest
+    - name: start nginx
+      become: true
+      service: 
+        name: nginx
+        state: started
+        enabled: yes  # if you want to also enable nginx
