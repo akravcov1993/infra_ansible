@@ -1,7 +1,8 @@
-#--- Installing Nginx ----
+#--- Installing docker ----
 
 - name: set up docker
   hosts: ubuntu
+  become_user: ubuntu
   tasks: 
     - name: ensure docker is at the latest version
       become: true
