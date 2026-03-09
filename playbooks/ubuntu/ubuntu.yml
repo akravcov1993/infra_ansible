@@ -1,0 +1,16 @@
+#--- Installing Nginx ----
+
+- name: set up docker
+  hosts: ubuntu
+  tasks: 
+    - name: ensure docker is at the latest version
+      become: true
+      apt:
+        name: docker
+        state: latest
+    - name: start docker
+      become: true
+      service: 
+        name: docker
+        state: started
+        enabled: yes  # if you want to also enable nginx
