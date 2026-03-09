@@ -3,7 +3,7 @@
 - name: set up ansible
   hosts: ansible
   tasks: 
-    - name: ensure nginx is at the latest version
+    - name: ensure ansible is at the latest version
       become: true
       dnf:
         name: ansible-core
